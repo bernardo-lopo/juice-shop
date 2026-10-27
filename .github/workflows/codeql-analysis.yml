@@ -1,8 +1,7 @@
 name: "CodeQL Scan"
 
 on:
-  push:
-  pull_request:
+  workflow_dispatch:
 
 jobs:
   analyze:
@@ -29,7 +28,7 @@ jobs:
             - 'data/static/codefixes'
           query-filters:
           - exclude:
-               id: js/missing-rate-limiting
+                id: js/missing-rate-limiting
     - name: Autobuild
       uses: github/codeql-action/autobuild@v3
     - name: Perform CodeQL Analysis
